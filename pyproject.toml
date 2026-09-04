@@ -1,0 +1,26 @@
+[project]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Task Manager project"
+readme = "README.md"
+authors = [
+    { name = "dr-Panakhov", email = "rafael.panaxov14@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "django",
+    "python-dotenv",
+    "dj-database-url",
+    "psycopg2-binary",
+    "gunicorn",
+    "whitenoise",
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+extend-exclude = [
+    "migrations",
+    "settings.py",
+]
