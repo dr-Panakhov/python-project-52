@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django_tailwind_cli',
+    'users',
 ]
 
 MIDDLEWARE = [

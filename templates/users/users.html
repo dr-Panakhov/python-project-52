@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Пользователи</h1>
+<table class="min-w-full bg-white shadow-md rounded">
+    <thead>
+        <tr class="border-b">
+            <th class="py-3 px-4 text-left">ID</th>
+            <th class="py-3 px-4 text-left">Имя пользователя</th>
+            <th class="py-3 px-4 text-left">Полное имя</th>
+            <th class="py-3 px-4 text-left">Дата создания</th>
+            <th class="py-3 px-4"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users_list %}
+        <tr class="border-b hover:bg-gray-50">
+            <td class="py-3 px-4">{{ user.id }}</td>
+            <td class="py-3 px-4">{{ user.username }}</td>
+            <td class="py-3 px-4">{{ user.first_name }} {{ user.last_name }}</td>
+            <td class="py-3 px-4">{{ user.date_joined|date:"d.m.Y H:i" }}</td>
+            <td class="py-3 px-4 text-right">
+                <a href="{% url 'user_update' user.id %}" class="text-blue-600 hover:underline mr-2">Изменить</a>
+                <a href="{% url 'user_delete' user.id %}" class="text-blue-600 hover:underline">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
