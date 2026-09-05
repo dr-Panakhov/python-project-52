@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Менеджер задач</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/">Менеджер задач</a>
-            <a href="#">Пользователи</a>
-            <div>
-                <a href="#">Вход</a>
-                <a href="#">Регистрация</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div>
-            <h1>Привет от Хекслета!</h1>
-            <p>Практические курсы по программированию</p>
-            <a href="https://hexlet.io">Узнать больше</a>
-        </div>
-    </main>
-    <footer>
-        <a href="https://hexlet.io">Hexlet</a>
-    </footer>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-white shadow-md rounded-lg p-8 max-w-3xl">
+    <h1 class="text-4xl font-bold mb-4">Привет от Хекслета!</h1>
+    <p class="text-gray-600 mb-6 text-lg">Практические курсы по программированию</p>
+    <a href="https://hexlet.io" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">Узнать больше</a>
+</div>
+{% endblock %}

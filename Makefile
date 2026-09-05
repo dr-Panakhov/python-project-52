@@ -5,6 +5,7 @@ migrate:
 	uv run python manage.py migrate
 
 collectstatic:
+	uv run python manage.py tailwind build
 	uv run python manage.py collectstatic --no-input
 
 setup: install collectstatic migrate
