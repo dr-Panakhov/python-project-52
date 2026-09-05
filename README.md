@@ -1,5 +1,7 @@
 # Менеджер задач (Python)
 
+[Посмотреть приложение на Render.com](https://task-manager-hexlet-3al0.onrender.com)
+
 [![hexlet-check](https://github.com/dr-Panakhov/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dr-Panakhov/python-project-52/actions)
 
 На практике узнаете о проектировании баз данных, PaaS, мониторинге ошибок, ORM, фреймворке Django, шаблонизации и Tailwind CSS.
@@ -9,20 +11,25 @@
 
 ## Стек
 
-- Python
+- Python 3.10+
+- Django
+- uv
+- PostgreSQL
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
+Клонирование репозитория:
+`git clone https://github.com/dr-Panakhov/python-project-52.git`
+`cd python-project-52`
 
-```bash
-git clone https://github.com/dr-Panakhov/python-project-52.git
-cd python-project-52
-```
+Установка зависимостей и подготовка базы данных:
+`make install`
+`make setup`
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+Запуск локального сервера:
+`make start`
 
 ---
 
