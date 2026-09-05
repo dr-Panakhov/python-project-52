@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Статусы</h1>
+<a href="{% url 'status_create' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Создать статус</a>
+<table class="min-w-full bg-white shadow-md rounded mt-4">
+    <thead>
+        <tr class="border-b">
+            <th class="py-3 px-4 text-left">ID</th>
+            <th class="py-3 px-4 text-left">Имя</th>
+            <th class="py-3 px-4 text-left">Дата создания</th>
+            <th class="py-3 px-4"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for status in statuses_list %}
+        <tr class="border-b hover:bg-gray-50">
+            <td class="py-3 px-4">{{ status.id }}</td>
+            <td class="py-3 px-4">{{ status.name }}</td>
+            <td class="py-3 px-4">{{ status.created_at|date:"d.m.Y H:i" }}</td>
+            <td class="py-3 px-4 text-right">
+                <a href="{% url 'status_update' status.id %}" class="text-blue-600 hover:underline mr-2">Изменить</a>
+                <a href="{% url 'status_delete' status.id %}" class="text-blue-600 hover:underline">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

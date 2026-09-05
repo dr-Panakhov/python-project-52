@@ -26,10 +26,13 @@
 <body class="bg-gray-100 flex flex-col min-h-screen">
     <nav class="bg-white shadow-md py-4 mb-8">
         <div class="container mx-auto px-4 flex justify-between items-center">
+            
             <div class="flex items-center space-x-6">
                 <a href="{% url 'index' %}" class="text-xl font-bold font-sans">Менеджер задач</a>
                 <a href="{% url 'users' %}" class="text-gray-600 hover:text-black">Пользователи</a>
+                <a href="{% url 'statuses' %}" class="text-gray-600 hover:text-black">Статусы</a>
             </div>
+            
             <div class="flex items-center space-x-4">
                 {% if user.is_authenticated %}
                 <form method="post" action="{% url 'logout' %}" class="inline">
@@ -41,6 +44,7 @@
                 <a href="{% url 'user_create' %}" class="text-gray-600 hover:text-black">Регистрация</a>
                 {% endif %}
             </div>
+
         </div>
     </nav>
 
