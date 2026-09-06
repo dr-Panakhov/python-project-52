@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import AccessMixin
 from .forms import RegisterUserForm
+from django.db.models import ProtectedError
 
 class UserPermissionMixin(AccessMixin):
     def dispatch(self, request, *args, **kwargs):
@@ -39,6 +40,13 @@ class UserDeleteView(UserPermissionMixin, SuccessMessageMixin, DeleteView):
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')
     success_message = 'Пользователь успешно удален'
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return super().post(request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(request, 'Невозможно удалить пользователя')
+            return redirect('users')
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
