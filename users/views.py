@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import AccessMixin
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, UserUpdateForm
 from django.db.models import ProtectedError
 
 class UserPermissionMixin(AccessMixin):
@@ -30,7 +30,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 class UserUpdateView(UserPermissionMixin, SuccessMessageMixin, UpdateView):
     model = User
-    form_class = RegisterUserForm
+    form_class = UserUpdateForm
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
     success_message = 'Пользователь успешно изменен'

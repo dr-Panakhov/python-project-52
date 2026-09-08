@@ -18,3 +18,8 @@ render-start:
 
 build:
 	./build.sh
+
+git:
+	git add .
+	git commit -m "auto fix"
+	git push
