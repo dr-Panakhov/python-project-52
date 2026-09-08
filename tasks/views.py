@@ -1,11 +1,13 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.shortcuts import redirect
 from .models import Task
 from .forms import TaskForm
+from django_filters.views import FilterView
+from .filters import TaskFilter
 
 class AuthorRequiredMixin(AccessMixin):
     def dispatch(self, request, *args, **kwargs):
@@ -15,10 +17,11 @@ class AuthorRequiredMixin(AccessMixin):
             return redirect('tasks')
         return super().dispatch(request, *args, **kwargs)
 
-class TaskListView(LoginRequiredMixin, ListView):
+class TaskListView(LoginRequiredMixin, FilterView):
     model = Task
     template_name = 'tasks/tasks.html'
     context_object_name = 'tasks_list'
+    filterset_class = TaskFilter
 
 class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task

@@ -36,3 +36,12 @@ class TaskCrudTest(TestCase):
         response = self.client.post(reverse('task_delete', args=[self.task.id]))
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Task.objects.filter(id=self.task.id).exists())
+        
+    def test_filter_tasks(self):
+        self.client.login(username='author', password='password123')
+        response = self.client.get(reverse('tasks'), {'status': self.status.id})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Тест')
+        response = self.client.get(reverse('tasks'), {'self_task': 'on'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Тест')
