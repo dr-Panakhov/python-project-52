@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
 
@@ -10,10 +10,10 @@ class RegisterUserForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username')
 
-class UserUpdateForm(forms.ModelForm):
+class UserUpdateForm(UserChangeForm):
     first_name = forms.CharField(label='Имя', max_length=150, required=True)
     last_name = forms.CharField(label='Фамилия', max_length=150, required=True)
 
-    class Meta:
+    class Meta(UserChangeForm.Meta):
         model = User
         fields = ('first_name', 'last_name', 'username')
