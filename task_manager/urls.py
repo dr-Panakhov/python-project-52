@@ -3,7 +3,11 @@ from django.urls import path, include
 from task_manager import views as main_views
 from users import views as user_views
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
+    path('sentry-debug/', trigger_error),
     path('admin/', admin.site.urls),
     path('', main_views.index, name='index'),
     path('users/', include('users.urls')),

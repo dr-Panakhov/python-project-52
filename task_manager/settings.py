@@ -6,9 +6,16 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+import sentry_sdk
 
 load_dotenv()
 
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    # Отправляем 100% транзакций
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
