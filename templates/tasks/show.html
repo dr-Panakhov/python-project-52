@@ -12,6 +12,14 @@
     <div class="mb-4">
         <span class="font-bold">Статус:</span> {{ task.status.name }}
     </div>
+    <div class="mb-4">
+        <span class="font-bold">Метки:</span>
+        <ul>
+            {% for label in task.labels.all %}
+                <li>{{ label.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
     <div class="mt-6 flex space-x-4">
         <a href="{% url 'task_update' task.id %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Изменить</a>
         <a href="{% url 'task_delete' task.id %}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Удалить</a>

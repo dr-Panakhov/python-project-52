@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Метки</h1>
+<a href="{% url 'label_create' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Создать метку</a>
+<table class="min-w-full bg-white shadow-md rounded mt-4">
+    <thead>
+        <tr class="border-b">
+            <th class="py-3 px-4 text-left">ID</th>
+            <th class="py-3 px-4 text-left">Имя</th>
+            <th class="py-3 px-4 text-left">Дата создания</th>
+            <th class="py-3 px-4"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for label in labels_list %}
+        <tr class="border-b hover:bg-gray-50">
+            <td class="py-3 px-4">{{ label.id }}</td>
+            <td class="py-3 px-4">{{ label.name }}</td>
+            <td class="py-3 px-4">{{ label.created_at|date:"d.m.Y H:i" }}</td>
+            <td class="py-3 px-4 text-right">
+                <a href="{% url 'label_update' label.id %}" class="text-blue-600 hover:underline mr-2">Изменить</a>
+                <a href="{% url 'label_delete' label.id %}" class="text-blue-600 hover:underline">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
