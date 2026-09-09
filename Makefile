@@ -28,4 +28,4 @@ test:
 	uv run pytest
 
 test-coverage:
-	uv run pytest --cov=task_manager --cov-report=xml task_manager/tests.py task_manager/tasks/tests.py task_manager/users/tests.py
+	uv run pytest --cov=task_manager --cov-report=xml users/
