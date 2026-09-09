@@ -2,6 +2,8 @@
 
 [Посмотреть приложение на Render.com](https://task-manager-hexlet-3al0.onrender.com)
 
+[![Python CI](https://github.com/dr-Panakhov/python-project-52/actions/workflows/tests.yml/badge.svg)](https://github.com/dr-Panakhov/python-project-52/actions/workflows/tests.yml)
+
 [![hexlet-check](https://github.com/dr-Panakhov/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dr-Panakhov/python-project-52/actions)
 
 На практике узнаете о проектировании баз данных, PaaS, мониторинге ошибок, ORM, фреймворке Django, шаблонизации и Tailwind CSS.
