@@ -23,3 +23,9 @@ git:
 	git add .
 	git commit -m "auto fix"
 	git push
+
+test:
+	uv run pytest
+
+test-coverage:
+	uv run pytest --cov=task_manager --cov-report=xml
