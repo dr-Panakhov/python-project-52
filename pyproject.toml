@@ -17,6 +17,9 @@ dependencies = [
     "django-tailwind-cli>=4.8.0",
     "django-filter>=26.1",
     "sentry-sdk>=2.69.1",
+    "pytest",
+    "pytest-django",
+    "pytest-cov",
 ]
 
 [tool.ruff]
