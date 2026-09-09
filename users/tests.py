@@ -12,8 +12,11 @@ class UsersCrudTest(TestCase):
 
     def test_user_create(self):
         response = self.client.post(reverse('user_create'), {
-            'first_name': 'Ivan', 'last_name': 'Ivanov', 'username': 'newuser',
-            'password': 'password123', 'password_confirmation': 'password123'
+            'first_name': 'Ivan', 
+            'last_name': 'Ivanov', 
+            'username': 'newuser',
+            'password1': 'password123', 
+            'password2': 'password123'
         })
         self.assertEqual(response.status_code, 302)
         self.assertTrue(User.objects.filter(username='newuser').exists())
@@ -21,7 +24,11 @@ class UsersCrudTest(TestCase):
     def test_user_update(self):
         self.client.login(username='testuser', password='password123')
         response = self.client.post(reverse('user_update', args=[self.user.id]), {
-            'first_name': 'Updated', 'last_name': 'Name', 'username': 'testuser'
+            'first_name': 'Updated', 
+            'last_name': 'Name', 
+            'username': 'testuser',
+            'password1': 'password123', 
+            'password2': 'password123'
         })
         self.assertEqual(response.status_code, 302)
         self.user.refresh_from_db()
