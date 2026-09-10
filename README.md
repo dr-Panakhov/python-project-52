@@ -6,6 +6,8 @@
 
 [![hexlet-check](https://github.com/dr-Panakhov/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dr-Panakhov/python-project-52/actions)
 
+[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=dr-panakhov_python-project-52&metric=coverage)](https://sonarcloud.io/summary/new_code?id=dr-panakhov_python-project-52)
+
 На практике узнаете о проектировании баз данных, PaaS, мониторинге ошибок, ORM, фреймворке Django, шаблонизации и Tailwind CSS.
 
 Учебный проект Хекслета: https://ru.hexlet.io/programs/python
